@@ -1,6 +1,9 @@
+"""Program to load, validate and search vendor data"""
+
 # requirement 1- reads vendor data from Hotdogs.txt, splits each line into fields and stores records in a list for later analysis
 
 # Load data
+
 vendor_data=[]
 with open("Hotdogs.txt", "r") as file:
     print("Vendor data:")
@@ -67,11 +70,26 @@ for record in vendor_data:
         else:
             print("Invalid record:", record)
 
-    except Exception as e:
+    except (ValueError, IndexError) as e:
         print("Error in record:", record, "|", e)
 
 # Output results
 print("\nValid records:")
 for v in valid_data:
     print(v)
+
+
+# Linear search to find vendor records based on user input
+
+search_name = input("Enter vendor name to search ")
+found = False # flag to track if any match is found
+
+for record in valid_data: # loop through all valid records
+    if search_name.lower() in record[1].lower():
+        print(record)
+        found = True
+
+if not found:
+    print("No matching records found")
+
 
