@@ -78,18 +78,29 @@ print("\nValid records:")
 for v in valid_data:
     print(v)
 
+# Linear search with partial and case insensitive matching
+while True:
+    search_name=input("Enter a vendor name to search, type 'exit' to quit")
 
-# Linear search to find vendor records based on user input
+    # allow user to exit the search loop
+    if search_name.lower() == "exit":
+        break
+    found = False
 
-search_name = input("Enter vendor name to search ")
-found = False # flag to track if any match is found
+    # check if user input matches vendor name 
+    for record in valid_data:
+        if search_name.lower() in record [1].lower():
+            print(record)
+            found = True
+            
+    #inform user if no matches found
+    if not found:
+        print("no matching records found")
 
-for record in valid_data: # loop through all valid records
-    if search_name.lower() in record[1].lower():
-        print(record)
-        found = True
 
-if not found:
-    print("No matching records found")
+
+
+
+
 
 
