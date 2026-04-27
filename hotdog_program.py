@@ -97,6 +97,31 @@ while True:
     if not found:
         print("no matching records found")
 
+def quick_sort(data):
+    # base case- if list has 0 or 1 item it's already sorted
+    if len(data) <= 1:
+        return data
+    
+    # choose first item as pivot
+    pivot = data[0]
+
+    # lists to hold values smaller and larger than pivot
+    left = []
+    right = []
+
+    # compare each item
+    for item in data[1:]:
+        if item[1].lower() < pivot[1].lower():
+            left.append(item)
+        else:
+            right.append(item)
+
+    # recursively sort left and right sides, then combine
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+# apply quick sort to validated dataset
+sorted_data = quick_sort(valid_data)
+
 
 
 
