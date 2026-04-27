@@ -78,7 +78,9 @@ print("\nValid records:")
 for v in valid_data:
     print(v)
 
-# Linear search with partial and case insensitive matching
+# Linear search on unsorted data with partial and case insensitive matching
+
+# loop allows repeated searches until user exits
 while True:
     search_name=input("Enter a vendor name to search, type 'exit' to quit")
 
@@ -121,6 +123,26 @@ def quick_sort(data):
 
 # apply quick sort to validated dataset
 sorted_data = quick_sort(valid_data)
+
+# Linear search on sorted data
+print("\n--- Linear Search on Sorted Data ---")
+
+while True:
+    search_name = input("enter vendor name to search, type 'exit' to quit: ").strip()
+
+    if search_name.lower() == "exit":
+        break
+
+    found = False
+    
+    # case insensitive partial match on vendor name (index 1)
+    for record in sorted_data:
+        if search_name.lower() in record[1].lower():
+            print(record)
+            found = True
+
+    if not found:
+        print("No matching records found")
 
 
 
