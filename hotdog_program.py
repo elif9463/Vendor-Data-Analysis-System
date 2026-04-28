@@ -159,7 +159,66 @@ while True:
     if not found:
         print("No matching records found")
 
+# binary search on sorted data
+def binary_search(data, target):
+    low = 0
+    high = len(data) - 1
+    target = target.lower()
 
+    #continue searching while there is a valid range
+    while low <= high:
+
+        #find the middle index
+        mid = (low + high) // 2
+
+        # get vendor name at midpoint
+        mid_name = data[mid][1].lower()
+
+        if mid_name == target:
+            results = [data[mid]]
+
+            # check records before midpoint
+            i = mid - 1
+            while i >= 0 and data[i][1].lower() == target:
+                results.append(data[i])
+                i -= 1
+
+            # check records after midpoint
+            i = mid + 1
+            while i < len(data) and data[i][1].lower() == target:
+                results.append(data[i])
+                i += 1
+                
+            return results
+        
+        # search right half if target is greater
+        elif mid_name < target:
+            low = mid + 1
+            
+        # otherwise search left half 
+        else:
+            high = mid - 1
+    return None
+
+print("\n--- Binary Search ---")
+
+# loop allows repeated searches until user exits
+while True:
+    search_name = input("Enter vendor name to search(exact match), type 'exit' to quit: ").strip()
+
+    if search_name.lower() == "exit":
+        break
+
+    # call binary search on sorted data
+    result = binary_search(quick_sorted_data, search_name)
+
+    if result:
+        # print all matching records returned
+        for record in result:
+            if record[1].lower() == search_name.lower():
+                print(record)
+    else:
+        print("no matching records found")
 
 
 
