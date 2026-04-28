@@ -124,6 +124,21 @@ def quick_sort(data):
 # apply quick sort to validated dataset
 sorted_data = quick_sort(valid_data)
 
+# Bubble Sort
+def bubble_sort(data):
+    n = len(data)
+
+    for i in range(n):
+        # compare adjacent items in each pass
+        for j in range(0, n - i -1):
+            # compare vendor names (index 1)
+            if data[j][1].lower() > data[j + 1][1].lower():
+                data[j], data[j + 1] = data[j +1], data[j]
+    return data
+
+# apply bubble sort to a copy of the original data
+bubble_sorted_data = bubble_sort(bubble_data)
+
 # Linear search on sorted data
 print("\n--- Linear Search on Sorted Data ---")
 
