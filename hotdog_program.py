@@ -220,6 +220,40 @@ while True:
     else:
         print("no matching records found")
 
+# --- Linear Search Timing ---
+import time
+
+start = time.time() # record start time
+
+# perform linear search on unsorted data
+for record in valid_data:
+    if search_name.lower() in record[1].lower():
+        pass # simulate search without printing
+    
+end = time.time() # record end time
+
+# calculate total time taken
+linear_time = end-start
+print("\nLinear search time:", linear_time)
+
+
+# --- Binary Search Timing ---
+
+start = time.time()
+
+# perform binary search on sorted data
+result = binary_search(quick_sorted_data, search_name)
+end = time.time()
+
+binary_time = end - start
+print("Binary search time:", binary_time)
+
+# announce the faster result
+if linear_time < binary_time:
+    print("Linear search was faster")
+elif binary_time < linear_time:
+    print("Binary searcg was faster")
+
 
 
 
