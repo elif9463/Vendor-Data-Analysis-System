@@ -78,7 +78,13 @@ print("\nValid records:")
 for v in valid_data:
     print(v)
 
-# Linear search on unsorted data with partial and case insensitive matching
+print("\n--- SORTING ---")
+original_data = valid_data
+quick_data = original_data.copy()
+bubble_data = original_data.copy()
+
+# Linear search with partial and case insensitive matching
+print("\n--- Linear search on unsorted data ---")
 
 # loop allows repeated searches until user exits
 while True:
@@ -198,6 +204,7 @@ def binary_search(data, target):
         # otherwise search left half 
         else:
             high = mid - 1
+            
     return None
 
 print("\n--- Binary Search ---")
@@ -248,7 +255,7 @@ end = time.time()
 binary_time = end - start
 print("Binary search time:", binary_time)
 
-# announce the faster result
+# print the faster result
 if linear_time < binary_time:
     print("Linear search was faster")
 elif binary_time < linear_time:
