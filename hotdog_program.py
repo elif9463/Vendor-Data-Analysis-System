@@ -241,7 +241,7 @@ end = time.time() # record end time
 
 # calculate total time taken
 linear_time = end-start
-print("\nLinear search time:", format(linear_time, ".6f", "seconds")
+print("\nLinear search time:", format(linear_time, ".6f"), "seconds")
 
 
 # --- Binary Search Timing ---
@@ -253,16 +253,28 @@ result = binary_search(quick_sorted_data, search_name)
 end = time.time()
 
 binary_time = end - start
-print("Binary search time:", format(binary_time, ".6f", "seconds")
+print("Binary search time:", format(binary_time, ".6f"), "seconds")
 
 # print the faster result
 if linear_time < binary_time:
     print("Linear search was faster")
 elif binary_time < linear_time:
-    print("Binary searcg was faster")
+    print("Binary search was faster")
 
 
+# make copies so both sorts use the same data
+bubble_data = valid_data.copy()
+quick_data= valid_data.copy()
 
+# --- Bubble Sort Timing ---
+start = time.time()
+
+bubble_sorted = bubble_sort(bubble_data)
+
+end = time.time()
+bubble_time = end - start
+
+print("bubble sort time:", format(bubble_time, ".6f"), "seconds")
 
 
 
