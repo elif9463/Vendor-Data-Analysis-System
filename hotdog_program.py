@@ -128,7 +128,7 @@ def quick_sort(data):
     return quick_sort(left) + [pivot] + quick_sort(right)
 
 # apply quick sort to validated dataset
-sorted_data = quick_sort(valid_data)
+quick_sorted_data = quick_sort(valid_data)
 
 # Bubble Sort
 def bubble_sort(data):
@@ -241,7 +241,7 @@ end = time.time() # record end time
 
 # calculate total time taken
 linear_time = end-start
-print("\nLinear search time:", linear_time)
+print("\nLinear search time:", format(linear_time, ".6f", "seconds")
 
 
 # --- Binary Search Timing ---
@@ -253,7 +253,7 @@ result = binary_search(quick_sorted_data, search_name)
 end = time.time()
 
 binary_time = end - start
-print("Binary search time:", binary_time)
+print("Binary search time:", format(binary_time, ".6f", "seconds")
 
 # print the faster result
 if linear_time < binary_time:
