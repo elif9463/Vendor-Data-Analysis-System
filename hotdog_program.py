@@ -274,7 +274,17 @@ bubble_sorted = bubble_sort(bubble_data)
 end = time.time()
 bubble_time = end - start
 
-print("bubble sort time:", format(bubble_time, ".6f"), "seconds")
+print("\nbubble sort time:", format(bubble_time, ".6f"), "seconds")
+
+# --- Quick Sort Timing ---
+start = time.time()
+
+quick_sorted = quick_sort(quick_data)
+
+end = time.time()
+quick_time = end - start
+
+print("Quick sort time:", format(quick_time, ".6f"), "seconds")
 
 
 
