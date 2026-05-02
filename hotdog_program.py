@@ -274,7 +274,7 @@ bubble_sorted = bubble_sort(bubble_data)
 end = time.time()
 bubble_time = end - start
 
-print("\nbubble sort time:", format(bubble_time, ".6f"), "seconds")
+print("\nBubble sort time:", format(bubble_time, ".6f"), "seconds")
 
 # --- Quick Sort Timing ---
 start = time.time()
@@ -286,5 +286,10 @@ quick_time = end - start
 
 print("Quick sort time:", format(quick_time, ".6f"), "seconds")
 
+# print faster result
+if quick_time < bubble_time:
+    print("Quick sort was faster")
+elif bubble_time < quick_time:
+    print("Bubble sort was faster")
 
 
