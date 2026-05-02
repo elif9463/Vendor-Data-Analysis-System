@@ -292,4 +292,19 @@ if quick_time < bubble_time:
 elif bubble_time < quick_time:
     print("Bubble sort was faster")
 
+# --- Vendor Data Analysis ---
 
+# Most productive vendor (highest total hotdogs)
+vendor_totals = {}
+
+for record in valid_data:
+    name = record[1]
+    hotdogs = int(record[3])
+
+    if name in vendor_totals:
+        vendor_totals[name] += hotdogs
+    else:
+        vendor_totals[name] = hotdogs
+
+most_productive = max(vendor_totals, key=vendor_totals.get)
+print("\nMost productive vendor:", most_productive)
