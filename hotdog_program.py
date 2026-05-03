@@ -336,3 +336,6 @@ for record in valid_data:
     else:
         ketchup_totals[name] = ketchup
 
+# find vendor with lowest total ketchup usage
+least_ketchup_vendor = min(ketchup_totals, key=ketchup_totals.get)
+print("Vendor with least ketchup usage:", least_ketchup_vendor)
