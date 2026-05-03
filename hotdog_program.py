@@ -1,4 +1,4 @@
-"""Program to load, validate and search vendor data"""
+# --- Vendor Data Analysis System --- 
 
 # requirement 1- reads vendor data from Hotdogs.txt, splits each line into fields and stores records in a list for later analysis
 
@@ -78,7 +78,6 @@ print("\nValid records:")
 for v in valid_data:
     print(v)
 
-print("\n--- SORTING ---")
 original_data = valid_data
 quick_data = original_data.copy()
 bubble_data = original_data.copy()
@@ -352,17 +351,28 @@ print("\nVendor with least ketchup usage:",
       least_ketchup_vendor,
       "(", least_ketchup_value, "litres )")
 
-# find week where most hotdogs were sold
+# find busiest week with highest total hotdog sales
+
+# dictionary to store total hotdogs per week
 week_totals = {}
 
+# loop through each record in dataset
 for record in valid_data:
     week = record[2]
     hotdogs = int(record[3]) + int(record[4])
 
+    # if week already exists in dictionary, add to it
     if week in week_totals:
         week_totals[week] += hotdogs
-    else:
+    else: # otherwise create new entry for that week
         week_totals[week] = hotdogs
-
+        
+# find week with highest total sales    
 busiest_week = max(week_totals, key=week_totals.get)
-print("\nBusiest week:", busiest_week)
+
+# split the combined code into readable year and week
+year = str(busiest_week)[:4]
+week = str(busiest_week)[4:]
+
+# display result with week and year separated
+print("\nBusiest week: Week", week, "of year", year) 
