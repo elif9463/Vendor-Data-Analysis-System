@@ -88,7 +88,7 @@ print("\n--- Linear search on unsorted data ---")
 
 # loop allows repeated searches until user exits
 while True:
-    search_name=input("Enter a vendor name to search, type 'exit' to quit")
+    search_name=input("Enter a vendor name to search, type 'exit' to quit: ")
 
     # allow user to exit the search loop
     if search_name.lower() == "exit":
@@ -301,10 +301,38 @@ for record in valid_data:
     name = record[1]
     hotdogs = int(record[3])
 
+    # accumulate total per vendor
     if name in vendor_totals:
         vendor_totals[name] += hotdogs
     else:
         vendor_totals[name] = hotdogs
-
+        
+# find vendor with highest total
 most_productive = max(vendor_totals, key=vendor_totals.get)
 print("\nMost productive vendor:", most_productive)
+
+# Total vegan vs meat hotdogs (across both vendors)
+vegan_total = 0
+meat_total = 0
+
+for record in valid_data:
+    # column 3 = vegan, column 4 = meat
+    vegan_total += int(record[3])
+    meat_total += int(record[4])
+
+print("\nTotal vegan hotdogs:", vegan_total)
+print("Total meat hotdogs:", meat_total)
+
+# vendor with least ketchup usage
+ketchup_totals= {}
+
+for record in valid_data:
+    name = record[1]
+    ketchup = float(record[6])
+
+    # accumulate total ketchup per vendor
+    if name in ketchup_totals:
+        ketchup_totals[name] += ketchup
+    else:
+        ketchup_totals[name] = ketchup
+
