@@ -294,6 +294,7 @@ elif bubble_time < quick_time:
 
 # --- Vendor Data Analysis ---
 
+print("\n--- Vendor Data Analysis---")
 # Most productive vendor (highest total hotdogs)
 vendor_totals = {}
 
@@ -338,4 +339,7 @@ for record in valid_data:
 
 # find vendor with lowest total ketchup usage
 least_ketchup_vendor = min(ketchup_totals, key=ketchup_totals.get)
-print("Vendor with least ketchup usage:", least_ketchup_vendor)
+least_ketchup_value = ketchup_totals[least_ketchup_vendor]
+print("\nVendor with least ketchup usage:",
+      least_ketchup_vendor,
+      "(", least_ketchup_value, "litres )")
