@@ -310,7 +310,15 @@ for record in valid_data:
         
 # find vendor with highest total
 most_productive = max(vendor_totals, key=vendor_totals.get)
-print("\nMost productive vendor:", most_productive)
+
+# get total hotdogs value
+most_productive_value = vendor_totals[most_productive]
+
+print("\nMost productive vendor:",
+      most_productive,
+      "(",
+      most_productive_value,
+      "hotdogs )")
 
 # Total vegan vs meat hotdogs (across both vendors)
 vegan_total = 0
@@ -343,3 +351,18 @@ least_ketchup_value = ketchup_totals[least_ketchup_vendor]
 print("\nVendor with least ketchup usage:",
       least_ketchup_vendor,
       "(", least_ketchup_value, "litres )")
+
+# find week where most hotdogs were sold
+week_totals = {}
+
+for record in valid_data:
+    week = record[2]
+    hotdogs = int(record[3]) + int(record[4])
+
+    if week in week_totals:
+        week_totals[week] += hotdogs
+    else:
+        week_totals[week] = hotdogs
+
+busiest_week = max(week_totals, key=week_totals.get)
+print("\nBusiest week:", busiest_week)
