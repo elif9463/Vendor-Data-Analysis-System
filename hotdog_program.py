@@ -1,6 +1,7 @@
 # --- Vendor Data Analysis System --- 
 
-# requirement 1- reads vendor data from Hotdogs.txt, splits each line into fields and stores records in a list for later analysis
+# requirement 1- reads vendor data from Hotdogs.txt, splits each line into fields 
+# and stores records in a list for later analysis (requirement 2)
 
 # Load data
 
@@ -13,7 +14,7 @@ with open("Hotdogs.txt", "r") as file:
 for vendor in vendor_data:
     print(vendor)
 
-# Validate data
+# Requirement 3- Validation of data
 valid_data = []
 
 for record in vendor_data:
@@ -82,7 +83,8 @@ original_data = valid_data
 quick_data = original_data.copy()
 bubble_data = original_data.copy()
 
-# Linear search with partial and case insensitive matching
+# Requirement 4- Searching the data (Linear search with partial and case insensitive matching)
+
 print("\n--- Linear search on unsorted data ---")
 
 # loop allows repeated searches until user exits
@@ -103,6 +105,8 @@ while True:
     #inform user if no matches found
     if not found:
         print("no matching records found")
+
+# Requirement 5: Quick sort algorithm to sort vendor data
 
 def quick_sort(data):
     # base case- if list has 0 or 1 item it's already sorted
@@ -129,7 +133,8 @@ def quick_sort(data):
 # apply quick sort to validated dataset
 quick_sorted_data = quick_sort(valid_data)
 
-# Bubble Sort
+# Requirement 6 - Bubble sort
+
 def bubble_sort(data):
     n = len(data)
 
@@ -144,7 +149,8 @@ def bubble_sort(data):
 # apply bubble sort to a copy of the original data
 bubble_sorted_data = bubble_sort(bubble_data)
 
-# Linear search on sorted data
+# Requirement 7 - Linear search on sorted data
+
 print("\n--- Linear Search on Sorted Data ---")
 
 while True:
@@ -164,7 +170,8 @@ while True:
     if not found:
         print("No matching records found")
 
-# binary search on sorted data
+# Requirement 8 - Binary search
+
 def binary_search(data, target):
     low = 0
     high = len(data) - 1
@@ -226,6 +233,8 @@ while True:
     else:
         print("no matching records found")
 
+# Requirement 9: Comparing search efficiency
+
 # --- Linear Search Timing ---
 import time
 
@@ -260,6 +269,7 @@ if linear_time < binary_time:
 elif binary_time < linear_time:
     print("Binary search was faster")
 
+# Requirement 10: Comparing sort efficiency 
 
 # make copies so both sorts use the same data
 bubble_data = valid_data.copy()
@@ -291,7 +301,7 @@ if quick_time < bubble_time:
 elif bubble_time < quick_time:
     print("Bubble sort was faster")
 
-# --- Vendor Data Analysis ---
+# Requirement 11: Analysing vendor data
 
 print("\n--- Vendor Data Analysis---")
 # Most productive vendor (highest total hotdogs)
