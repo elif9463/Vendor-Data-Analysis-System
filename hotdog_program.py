@@ -5,20 +5,25 @@
 
 # Load data
 
-vendor_data=[]
+vendor_data=[] # list to store all records from the file
 with open("Hotdogs.txt", "r") as file:
     print("Vendor data:")
     for line in file:
+        # remove whitespace and split values by comma
         items=line.strip().split(",")
-        vendor_data.append(items)
+        vendor_data.append(items) # add each record to list
+
+# display data to check that file was read correctly
 for vendor in vendor_data:
     print(vendor)
 
 # Requirement 3- Validation of data
-valid_data = []
+valid_data = [] # list to store only valid records
 
+# loop through each record
 for record in vendor_data:
     try:
+        # extract fields from record
         vendor_id = record[0]
         name = record[1]
         week = record[2]
@@ -27,9 +32,11 @@ for record in vendor_data:
         onions = float(record[5])
         ketchup = int(record[6])
 
-        valid = True
+        valid = True 
 
         # Vendor ID format check
+
+        # Vendor ID must be format: AA_123 (2 uppercase letters, underscore, 3 digits)
         if not (
             len(vendor_id) == 6 and
             vendor_id[:2].isalpha() and
@@ -71,6 +78,7 @@ for record in vendor_data:
         else:
             print("Invalid record:", record)
 
+    # catch errors such as missing values or wrong data types
     except (ValueError, IndexError) as e:
         print("Error in record:", record, "|", e)
 
