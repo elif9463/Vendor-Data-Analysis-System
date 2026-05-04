@@ -235,20 +235,26 @@ while True:
 
 # Requirement 9: Comparing search efficiency
 
-# --- Linear Search Timing ---
+search_name = input("Enter vendor name to test timing: ")
+
+# Linear search timing
+                    
 import time
 
-start = time.time() # record start time
+# Linear search timing
+start = time.time() # records start time before search begins
 
-# perform linear search on unsorted data
+# loop through all records in dataset (linear search process)
 for record in valid_data:
+    # checks if search term is contained in vendor name (case insensitive)
     if search_name.lower() in record[1].lower():
-        pass # simulate search without printing
-    
-end = time.time() # record end time
+        pass # no output needed, just measuring time
 
-# calculate total time taken
-linear_time = end-start
+end = time.time() # records end time after search completes 
+
+linear_time = end - start # calculates total time taken for linear search 
+
+# displays result to 6 dp
 print("\nLinear search time:", format(linear_time, ".6f"), "seconds")
 
 
