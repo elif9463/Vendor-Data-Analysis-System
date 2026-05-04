@@ -162,7 +162,7 @@ while True:
     found = False
     
     # case insensitive partial match on vendor name (index 1)
-    for record in sorted_data:
+    for record in bubble_sorted_data:
         if search_name.lower() in record[1].lower():
             print(record)
             found = True
@@ -386,3 +386,26 @@ week = str(busiest_week)[4:]
 
 # display result with week and year separated
 print("\nBusiest week: Week", week, "of year", year) 
+
+# requirement 12 - Save results to output file
+
+# open a new text file in write mode (creates file if it doesn't exist)
+with open("analysis_results.txt", "w") as file:
+
+    # title and header for readability
+    file.write("Vendor data analysis results\n")
+    file.write("--------------------------------\n\n")
+
+    # write most productive vendor and its total hotdogs
+    file.write("Most productive vendor: " + most_productive +
+               " (" +str(most_productive_value) + " hotdogs)\n")
+
+    # write total vegan and meat hotdogs across all vendors
+    file.write("Total vegan hotdogs: " +str(vegan_total) + "\n")
+    file.write("Total meat hotdogs: " + str(meat_total) + "\n\n")
+
+    # write vendor wtih least ketchup usage and its value
+    file.write("Vendor with least ketchup usage: " +
+               least_ketchup_vendor +
+               " (" + str(least_ketchup_value) + " litres)\n")
+    
