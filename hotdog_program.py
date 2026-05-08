@@ -169,6 +169,12 @@ def bubble_sort(data):
 # apply bubble sort to a copy of the original data
 bubble_sorted_data = bubble_sort(bubble_data)
 
+# dislpay bubble sorted data
+print("--- Bubble Sorted Data ---")
+
+for record in bubble_sorted_data:
+    print(record)
+    
 # Requirement 7 - Linear search on sorted data
 
 print("\n--- Linear Search on Sorted Data ---")
