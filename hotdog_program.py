@@ -147,6 +147,12 @@ def quick_sort(data):
 # apply quick sort to validated dataset
 quick_sorted_data = quick_sort(valid_data)
 
+# display quick sorted data
+print("\n--- Quick Sorted Data ---")
+
+for record in quick_sorted_data:
+    print(record)
+    
 # Requirement 6 - Bubble sort
 
 def bubble_sort(data):
