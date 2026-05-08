@@ -1,4 +1,6 @@
-# --- Vendor Data Analysis System --- 
+"""
+Vendor Data Analysis System --- 
+"""
 
 # requirement 1- reads vendor data from Hotdogs.txt, splits each line into fields 
 # and stores records in a list for later analysis (requirement 2)
