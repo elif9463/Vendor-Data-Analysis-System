@@ -102,7 +102,13 @@ while True:
     # allow user to exit the search loop
     if search_name.lower() == "exit":
         break
+        
     found = False
+    
+    # reject blank searches
+    if search_name.strip() == "":
+        print("Please enter a vendor name")
+        continue
 
     # check if user input matches vendor name 
     for record in valid_data:
