@@ -8,7 +8,7 @@ Vendor Data Analysis System ---
 # Load data
 
 vendor_data=[] # list to store all records from the file
-with open("Hotdogs.txt", "r") as file:
+with open("Hotdogs.txt", "r", encoding="utf-8") as file:
     print("Vendor data:")
     for line in file:
         # remove whitespace and split values by comma
@@ -424,7 +424,7 @@ print("\nBusiest week: Week", week, "of year", year)
 # requirement 12 - Save results to output file
 
 # open a new text file in write mode (creates file if it doesn't exist)
-with open("analysis_results.txt", "w") as file:
+with open("analysis_results.txt", "w", encoding="utf-8") as file:
 
     # title and header for readability
     file.write("Vendor data analysis results\n")
