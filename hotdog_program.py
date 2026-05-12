@@ -443,3 +443,14 @@ with open("analysis_results.txt", "w", encoding="utf-8") as file:
                least_ketchup_vendor +
                " (" + str(least_ketchup_value) + " litres)\n")
     
+# write search efficiency results
+    file.write("\nSearch Efficiency Results\n")
+    file.write("-------------------------\n")
+
+    file.write("Linear Search Time: " +
+               format(linear_time, ".6f") +
+               " seconds\n")
+    
+    file.write("Binary Search Time: " +
+               format(binary_time, ".6f") +
+               " seconds\n\n")
