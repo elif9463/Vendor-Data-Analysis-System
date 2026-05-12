@@ -463,3 +463,17 @@ with open("analysis_results.txt", "w", encoding="utf-8") as file:
     else:
         file.write("Both searches took the same amount of time\n\n")
 
+# ---------------- Sort Efficiency Results ----------------
+
+    file.write("Sort Efficiency Results\n")
+    file.write("-----------------------\n")
+
+    # write bubble sort timing result
+    file.write("Bubble sort time: " +
+               format(bubble_time, ".6f") +
+               " seconds\n")
+
+    # write quick sort timing result
+    file.write("Quick sort time: " +
+               format(quick_time, ".6f") +
+               " seconds\n")
