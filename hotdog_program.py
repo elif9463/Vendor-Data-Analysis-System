@@ -454,3 +454,12 @@ with open("analysis_results.txt", "w", encoding="utf-8") as file:
     file.write("Binary Search Time: " +
                format(binary_time, ".6f") +
                " seconds\n\n")
+
+# compare search timings and write which was faster
+    if linear_time < binary_time:
+        file.write("Linear search was faster\n\n")
+    elif binary_time < linear_time:
+        file.write("Binary search was faster\n\n")
+    else:
+        file.write("Both searches took the same amount of time\n\n")
+
