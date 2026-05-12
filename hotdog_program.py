@@ -477,3 +477,13 @@ with open("analysis_results.txt", "w", encoding="utf-8") as file:
     file.write("Quick sort time: " +
                format(quick_time, ".6f") +
                " seconds\n")
+
+# compare sort timings and write which was faster
+    if quick_time < bubble_time:
+        file.write("Quick sort was faster\n")
+    
+    elif bubble_time < quick_time:
+        file.write("Bubble sort was faster\n")
+    
+    else:
+        file.write("Both sorts took the same amount of time\n")
